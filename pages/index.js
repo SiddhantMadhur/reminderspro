@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { supabase } from '../server'
-import AuthPage from '../subpages/auth'
+import AuthPage from '../components/auth'
 
 function Head() {
 
@@ -36,7 +36,7 @@ function Head() {
     <div className={`${darkMode?'dark':''}`}>
 
       {
-        loggedIn?(<div className=''>logged in</div>):(<AuthPage/>)
+        loggedIn?(<div className=''><button onClick={async()=>await supabase.auth.signOut()}>signout</button></div>):(<AuthPage/>)
       }
     </div>
   )
